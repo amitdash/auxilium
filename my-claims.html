@@ -112,7 +112,9 @@
       <core-card id="core_card" center horizontal layout center-justified one flex active>Submit your ticket here</core-card>
       <paper-shadow class="claims_card" z="2" layout one flex vertical>
         <paper-input label="What is your name?" floatinglabel id="name_input"></paper-input>
-        <paper-input label="What room #?" floatinglabel error="is not an actual room number" id="room_input" pattern="^[A-Ca-c'\d-]*$" on-input="{{inputAction}}"></paper-input>
+        <paper-input-decorator label="What room #?" floatinglabel error="is not an actual room number" id="room_input" >
+          <input is="core-input" pattern="^[A-Ca-c'\d-]*$" on-input="{{inputAction}}">
+        </paper-input-decorator>
         <paper-input label="Describe your problem" floatinglabel id="problem_input" vertical layout two flex multiline></paper-input>
         <div id="urgency"><span>How urgent is it?</span></div>
         <paper-slider pin value="1" max="10" id="paper_slider" center horizontal layout start-justified>How urgent is it?</paper-slider>
