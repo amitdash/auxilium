@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>Auxillium</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="imports.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body unresolved>
+  <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://{{globals.firebase}}.firebaseio.com" provider="google" on-login="{{onLogin}}" on-error="{{onLoginError}}"></firebase-login>
+  <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
+  <pvc-globals values="{{globals}}"></pvc-globals>
+
+  <core-drawer-panel transition id="core_drawer_panel" touch-action>
+    <section id="section" drawer>
+      <core-header-panel mode="standard" id="core_header_panel1">
+        <core-toolbar id="core_toolbar1">
+          <core-icon-button icon="arrow-back" id="back_button_drawer" core-drawer-toggle></core-icon-button>
+          <div id="div1">Auxillium</div>
+        </core-toolbar>
+        <section id="section3">
+          </section>
+        <core-menu selected="0" selectedindex="1" valueattr="hash" selected="{{route}}" id="drawer_selections">
+         <!-- <template repeat="{{page in pages}}"> -->
+          <paper-item hash="{{page.hash}}" noink >
+            <core-icon icon="apps"></core-icon>
+            <a href="#one">Home</a>
+          </paper-item>
+          <paper-item noink>
+            <core-icon icon="account-circle"></core-icon>
+            <a href="#two" >User</a>
+          </paper-item>
+          <paper-item noink>
+            <core-icon icon="assignment"></core-icon>
+            <a href="#three">Claims</a>
+          </paper-item>
+        </core-menu>
+      </core-header-panel>
+    </section>
+    <section id="mainpanel" main>
+      <core-header-panel mode="standard" id="core_header_panel" horizontal layout center-justified center>
+        <core-toolbar id="core_toolbar">
+          <core-icon-button icon="menu" id="drawer_hamburger" core-drawer-toggle></core-icon-button>
+          <div id="title" one flex>Home</div>
+          <paper-menu-button>
+            <paper-icon-button icon="more-vert" id="settings"></paper-icon-button>
+            <paper-dropdown class="dropdown" halign="right">
+              <core-menu class="menu">
+                <paper-item>Help</paper-item>
+                <paper-item>Settings</paper-item>
+                <paper-item>About</paper-item>
+              </core-menu>
+            </paper-dropdown>
+          </paper-menu-button>
+        </core-toolbar>
+        <section id="section2"></section>
+        <div id="content">
+          <core-card id="core_card" center horizontal layout center-justified one flex active>Submit your claim here</core-card>
+          <my-claims center-center vertical layout></my-claims>
+        </div>
+      </core-header-panel>
+    </section>
+
+<!--
+      <div class="content">
+        <app-router>
+          <app-route path="/" import="claim-list.html" element="claim-list"></app-route>
+          <app-route path="/ticket/:id" import="/elements/questions/view.html" element="qa-view"></app-route>
+        </app-router>
+      </div>
+-->
+  </core-drawer-panel>
+
+  <script>
+    Polymer({
+        ready: function() {
+          this.globals.firebase = 'vivid-fire-7477';
+        }
+    });
+
+  </script>
+</body>
+</html>

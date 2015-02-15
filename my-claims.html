@@ -1,0 +1,181 @@
+<link rel="import" href="imports.html">
+
+<polymer-element name="my-claims" >
+  <template>
+    <style>
+      .claims_card {
+        width: 300px;
+        height: 300px;
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+        padding: 12px;
+        top: 30px;
+        position: relative;
+        background-color: rgb(255, 255, 255);
+      }
+      #paper_button {
+        background-color: rgb(241, 92, 34);
+      }
+      #paper_slider {
+        width: 100%;
+      }
+      core-animated-pages {
+        height: 100%;
+        width: 100%;
+      }
+      core-animated-pages {
+        width: 85%;
+        height: 85%;
+        -webkit-user-select: none;
+        overflow: hidden;
+      }
+      core-animated-pages > * {
+        border-radius: 5px;
+        font-size: 50px;
+        background-color: white;
+      }
+      paper-slider::shadow #sliderKnobInner {
+        background-color: rgb(241, 92, 34);
+      }
+      paper-slider::shadow #sliderBar::shadow #activeProgress {
+        background-color: rgb(0, 72, 144);
+      }
+      paper-slider::shadow #sliderKnobInner::before {
+        background-color: rgb(0, 72, 144);
+      }
+      #urgency {
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .welcome {
+        position: absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        overflow:hidden;
+      }
+      .welcome_msg {
+        padding: 40px 20px;
+        top: 100px;
+        background-color: white;
+        width: 265px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #welcome_icon {
+        height: 200px;
+        width: 200px;
+        margin-right: 10px;
+        margin-top: -100px;
+        margin-bottom: -100px;
+      }
+      #btn {
+        background-color: rgb(0, 72, 144);
+        margin-left: 200px;
+        margin-top: 10px;
+        margin-bottom: -30px;
+        color: white;
+      }
+      #core_card {
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+        padding: 20px;
+        opacity: 1;
+        position: relative;
+        width: auto;
+        height: auto;
+        background-color: rgb(255, 255, 255);
+      }
+    </style>
+
+    <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://{{globals.firebase}}.firebaseio.com" provider="google" on-login="{{onLogin}}" on-error="{{onLoginError}}"></firebase-login>
+    <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
+    <pvc-globals values="{{globals}}"></pvc-globals>
+
+<!--
+      WELCOME DIALOG PROMPTING USER TO SIGN IN
+    <div class="welcome" hidden?="{{globals.currentUser}}">
+      <paper-shadow class="welcome_msg" center-center vertical layout>
+        <div id="horfirst" center-center horizontal layout>
+          <core-icon icon="info-outline" id="welcome_icon"></core-icon>
+          Welcome! You need to sign in to view and submit tickets!
+        </div>
+        <paper-button on-click="{{login}}" id="btn">LOGIN</paper-button>
+      </paper-shadow>
+    </div>
+-->
+
+<!--    TICKET FORM TO SUBMIT TICKETS-->
+    <div id="ticket_form" >
+      <core-card id="core_card" center horizontal layout center-justified one flex active>Submit your ticket here</core-card>
+      <paper-shadow class="claims_card" z="2" layout one flex vertical>
+        <paper-input label="What is your name?" floatinglabel id="name_input"></paper-input>
+        <paper-input label="What room #?" floatinglabel id="room_input" validate="^[0-9]*$"></paper-input>
+        <paper-input label="Describe your problem" floatinglabel id="problem_input" vertical layout two flex multiline></paper-input>
+        <div id="urgency"><span>How urgent is it?</span></div>
+        <paper-slider pin value="1" max="10" id="paper_slider" center horizontal layout start-justified>How urgent is it?</paper-slider>
+        <paper-button raised id="paper_button" on-tap="{{claimStuff}} , {{submitQuestion}} , {{swap}}"  horizontal layout one flex center center-justified>SUBMIT</paper-button>
+
+      </paper-shadow>
+    </div>
+
+    <div>
+      <paper-toast text="Claim received!" id="toast1" class="core-transition-bottom core-transition"></paper-toast>
+    </div>
+
+<!--    REPEATER ELEMENT TO POPULATE TICKET LIST-->
+    <div id="ticket_list" style="display: none">
+      <core-card id="core_card" center horizontal layout center-justified one flex active>Here's the current list of all tickets</core-card>
+      <claim-list></claim-list>
+    </div>
+  </template>
+  <script>
+    (function () {
+      'use strict';
+      Polymer({
+        claimStuff: function () {
+          this.$.toast1.show();
+        },
+        claimStuff2: function () {
+          alert("hi");
+        },
+        ready: function() {
+          this.globals.firebase = 'vivid-fire-7477';
+        },
+        login: function () {
+  //        alert("Hi!!!");
+          this.$.baseLogin.login();
+        },
+        logout: function() {
+          this.$.baseLogin.logout();
+          window.location.reload();
+        },
+        onLogin: function() {
+          this.globals.currentUser = this.user;
+        },
+        onLoginError: function(err) {
+          console.log('An error occurred.');
+        },
+        submitQuestion: function() {
+          var ticket = this.$.base.push({
+            name: this.$.name_input.value,
+            room: this.$.room_input.value,
+            problem: this.$.problem_input.value,
+            urgency: this.$.paper_slider.value,
+            timestamp: new Date().toDateString()
+          });
+          this.$.name_input.value = '';
+          this.$.room_input.value = '';
+          this.$.problem_input.value = '';
+          this.$.paper_slider.value = '';
+        },
+        swap: function() {
+          this.$.ticket_form.style.display= 'none';
+          this.$.ticket_list.style.display= 'block';
+        }
+      });
+    })();
+  </script>
+</polymer-element>
