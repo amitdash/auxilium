@@ -2,20 +2,20 @@
   'use strict';
   Polymer({
 //    BEGIN PVC GLOBALS DATA
-    ready: function() {
+    ready: function () {
       this.globals.firebase = 'vivid-fire-7477';
     },
     login: function () {
       this.$.baseLogin.login();
     },
-    logout: function() {
+    logout: function () {
       this.$.baseLogin.logout();
       window.location.reload();
     },
-    onLogin: function() {
+    onLogin: function () {
       this.globals.currentUser = this.user;
     },
-    onLoginError: function(err) {
+    onLoginError: function (err) {
       console.log('An error occurred.');
     },
 //    END PVC GLOBALS DATA
@@ -24,7 +24,7 @@
     claimStuff: function () {
       this.$.toast1.show();
     },
-    submitQuestion: function() {
+    submitQuestion: function () {
       var ticket = this.$.base.push({
         name: this.$.name_input.value,
         room: this.$.room_input.value,
@@ -37,13 +37,13 @@
       this.$.problem_input.value = '';
       this.$.paper_slider.value = '';
     },
-    swap: function() {
-      this.$.ticket_form.style.display= 'none';
-      this.$.ticket_list.style.display= 'block';
+    swap: function () {
+      this.$.ticket_form.style.display = 'none';
+      this.$.ticket_list.style.display = 'block';
     },
-    inputAction: function(e) {
-      this.$.room_input.isInvalid = !e.target.validity.valid;
-    },
+    inputAction: function (e) {
+      this.$.room_check.isInvalid = !e.target.validity.valid;
+    }
 //    END MY-CLAIMS DATA
   });
 })();
