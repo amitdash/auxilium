@@ -1,0 +1,31 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../../elements/elements.html">
+
+<polymer-element name="claim-list" attributes="">
+  <template>
+    <sidebar-layout selected="tickets">
+      <link rel="stylesheet" href="claim-list.css">
+      <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
+      <pvc-globals values="{{globals}}"></pvc-globals>
+
+      <!--  TEMPLATE TO REPEAT THE KEYS OF TICKETS FROM FIREBASE-->
+      <template repeat="{{id in keys}}" >
+        <paper-shadow z="1">
+          <div class="question">
+            <div layout horizontal center>
+              <div class="urgency_img">
+                <span>{{tickets[id]['urgency']}}</span>
+              </div>
+              <div class="details" flex>
+                <h3>Room# {{tickets[id]['room']}}</h3>
+                <p>{{tickets[id]['problem']}}</p>
+                <span class="metadata">by {{tickets[id]['name']}}</a> &bull; {{tickets[id]['timestamp']}} </span>
+              </div>
+            </div>
+          </div>
+        </paper-shadow>
+      </template>
+    </sidebar-layout>
+  </template>
+  <script src="../../scripts/app.js"></script>
+</polymer-element>

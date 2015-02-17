@@ -1,3 +1,34 @@
+/** main content */
+:host /deep/ core-header-panel[main] {
+  background-color: rgb(0, 72, 144);
+}
+.content {
+  padding: 20px;
+}
+
+/** sidebar */
+core-header-panel core-item {
+  padding: 6px 12px;
+  line-height: 40px;
+}
+core-scaffold::shadow core-toolbar {
+  background: rgb(241, 92, 34);
+  color: rgb(255, 255, 255);
+}
+
+core-header-panel  core-item:not(:first-of-type) {
+  border-top: 1px solid rgb(241, 92, 34);
+}
+core-header-panel core-item:hover,
+core-header-panel core-item:focus {
+  background-color: #fcfcfc;
+  color: rgb(0, 72, 144);
+}
+core-header-panel core-item[active] {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 72, 144);
+}
+/*
 
 :host {
   position: absolute;
@@ -74,8 +105,8 @@
   background-color: rgb(255, 255, 255);
 }
 body {
-	font-family: "RobotoDraft";
-	font-weight: 300;
+  font-family: "RobotoDraft";
+  font-weight: 300;
 }
 
 
@@ -112,3 +143,4 @@ paper-item a {
 .menu {
   color: #000000;
 }
+*/

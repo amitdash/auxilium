@@ -1,0 +1,21 @@
+<link rel="import" href="../../imports.html">
+
+<polymer-element name="sidebar-layout" attributes="selected" noscript>
+  <template>
+    <link rel="stylesheet" href="sidebar-layout.css">
+    <core-scaffold>
+      <core-header-panel navigation flex mode="normal">
+        <core-toolbar style="background-color: rgb(0, 72, 144); color: rgb(255, 255, 255);">Auxilium</core-toolbar>
+        <core-item icon="apps" label="Home" active?="{{selected == 'home'}}"><a href="/#"></a></core-item>
+        <core-item icon="account-circle" label="User" active?="{{selected == 'user'}}"><a href="/#/user"></a></core-item>
+        <core-item icon="assignment" label="Tickets" active?="{{selected == 'tickets'}}"><a href="/#/tickets"></a></core-item>
+      </core-header-panel>
+      <div tool>
+        <content select=".title"></content>
+      </div>
+      <div class="content">
+        <content></content>
+      </div>
+    </core-scaffold>
+  </template>
+</polymer-element>
