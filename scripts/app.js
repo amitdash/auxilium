@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   Polymer({
-//    BEGIN PVC GLOBALS DATA
+//    BEGIN PVC GLOBALS, FIREBASE AND GENERAL DATA
     ready: function () {
       this.globals.firebase = 'vivid-fire-7477';
     },
@@ -18,7 +18,7 @@
     onLoginError: function (err) {
       console.log('An error occurred.');
     },
-//    END PVC GLOBALS DATA
+//    END PVC GLOBALS, FIREBASE AND GENERAL DATA
 
 //    BEGIN MY-CLAIMS DATA
     claimStuff: function () {
