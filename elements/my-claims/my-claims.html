@@ -24,7 +24,7 @@
 
   <!--    TICKET FORM TO SUBMIT TICKETS-->
       <div id="ticket_form" center-center vertical layout hidden?="{{!globals.currentUser}}">
-        <core-card id="core_card" center horizontal layout center-justified one flex active>Submit your ticket here!</core-card>
+        <core-card id="core_card" center horizontal layout center-justified one flex active>Submit your ticket here, {{user.google.displayName}}!</core-card>
         <paper-shadow class="claims_card" z="2" layout one flex vertical>
           <paper-input label="What is your name?" floatinglabel id="name_input"></paper-input>
           <paper-input-decorator label="What room #?" floatinglabel error="is not an actual room number" id="room_check">
