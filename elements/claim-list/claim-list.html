@@ -8,8 +8,10 @@
       <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
       <pvc-globals values="{{globals}}"></pvc-globals>
 
+      <welcome-message></welcome-message>
+
       <!--  TEMPLATE TO REPEAT THE KEYS OF TICKETS FROM FIREBASE-->
-      <template repeat="{{id in keys}}" >
+      <template repeat="{{id in keys}}" hidden?="{{!globals.currentUser}}">
         <paper-shadow z="1">
           <div class="question">
             <div layout horizontal center>

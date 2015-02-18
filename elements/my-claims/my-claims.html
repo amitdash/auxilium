@@ -9,18 +9,7 @@
       <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
       <pvc-globals values="{{globals}}"></pvc-globals>
 
-
-<!--        WELCOME DIALOG PROMPTING USER TO SIGN IN-->
-      <div class="welcome" hidden?="{{globals.currentUser}}">
-        <paper-shadow class="welcome_msg" center-center vertical layout>
-          <div id="horfirst" center-center horizontal layout>
-            <core-icon icon="info-outline" id="welcome_icon"></core-icon>
-            Welcome! You need to sign in to view and submit tickets!
-          </div>
-          <paper-button on-click="{{login}}" id="btn">LOGIN</paper-button>
-        </paper-shadow>
-      </div>
-
+      <welcome-message></welcome-message>
 
   <!--    TICKET FORM TO SUBMIT TICKETS-->
       <div id="ticket_form" center-center vertical layout hidden?="{{!globals.currentUser}}">
