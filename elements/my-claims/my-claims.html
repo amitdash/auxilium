@@ -3,14 +3,14 @@
 
 <polymer-element name="my-claims">
   <template>
-    <sidebar-layout selected="home">
+    <sidebar-layout selected="home" title="Home">
       <link rel="stylesheet" href="my-claims.css">
       <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://{{globals.firebase}}.firebaseio.com" provider="google" on-login="{{onLogin}}" on-error="{{onLoginError}}"></firebase-login>
       <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
       <pvc-globals values="{{globals}}"></pvc-globals>
 
-  <!--
-        WELCOME DIALOG PROMPTING USER TO SIGN IN
+
+<!--        WELCOME DIALOG PROMPTING USER TO SIGN IN-->
       <div class="welcome" hidden?="{{globals.currentUser}}">
         <paper-shadow class="welcome_msg" center-center vertical layout>
           <div id="horfirst" center-center horizontal layout>
@@ -20,10 +20,10 @@
           <paper-button on-click="{{login}}" id="btn">LOGIN</paper-button>
         </paper-shadow>
       </div>
-  -->
+
 
   <!--    TICKET FORM TO SUBMIT TICKETS-->
-      <div id="ticket_form" center-center vertical layout>
+      <div id="ticket_form" center-center vertical layout hidden?="{{!globals.currentUser}}">
         <core-card id="core_card" center horizontal layout center-justified one flex active>Submit your ticket here!</core-card>
         <paper-shadow class="claims_card" z="2" layout one flex vertical>
           <paper-input label="What is your name?" floatinglabel id="name_input"></paper-input>
