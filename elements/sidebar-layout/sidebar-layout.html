@@ -1,6 +1,6 @@
 <link rel="import" href="../../imports.html">
 
-<polymer-element name="sidebar-layout" attributes="selected , title" noscript>
+<polymer-element name="sidebar-layout" attributes="selected , headerTitle" noscript>
   <template>
     <link rel="stylesheet" href="sidebar-layout.css">
     <core-scaffold>
@@ -11,7 +11,7 @@
         <core-item icon="assignment" label="Tickets" active?="{{selected == 'tickets'}}"><a href="/#/tickets"></a></core-item>
       </core-header-panel>
       <div tool>
-        {{title}}
+        {{headerTitle}}
       </div>
       <div class="content">
         <content></content>

@@ -3,7 +3,7 @@
 
 <polymer-element name="claim-list" attributes="">
   <template>
-    <sidebar-layout selected="tickets" title="Ticket List">
+    <sidebar-layout selected="tickets" headerTitle="Ticket List">
       <link rel="stylesheet" href="claim-list.css">
       <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
       <pvc-globals values="{{globals}}"></pvc-globals>

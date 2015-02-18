@@ -3,7 +3,7 @@
 
 <polymer-element name="my-claims">
   <template>
-    <sidebar-layout selected="home" title="Home">
+    <sidebar-layout selected="home" headerTitle="Home">
       <link rel="stylesheet" href="my-claims.css">
       <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://{{globals.firebase}}.firebaseio.com" provider="google" on-login="{{onLogin}}" on-error="{{onLoginError}}"></firebase-login>
       <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
