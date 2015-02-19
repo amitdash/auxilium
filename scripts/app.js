@@ -22,11 +22,15 @@
 
 //    BEGIN MY-CLAIMS DATA
     claimStuff: function () {
-      this.$.toast1.show();
+      this.$.ticket_toast.show();
     },
     submitQuestion: function () {
       var ticket = this.$.base.push({
         name: this.globals.currentUser.google.displayName,
+        user_metadata: {
+          avatar_url: this.globals.currentUser.google.cachedUserProfile.picture,
+          html_url: this.globals.currentUser.google.id
+        },
         room: this.$.room_input.value,
         problem: this.$.problem_input.value,
         urgency: this.$.paper_slider.value,
