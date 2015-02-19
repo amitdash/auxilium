@@ -26,16 +26,16 @@
     },
     submitQuestion: function () {
       var ticket = this.$.base.push({
-        name: this.$.name_input.value,
+        name: this.globals.currentUser.google.displayName,
         room: this.$.room_input.value,
         problem: this.$.problem_input.value,
         urgency: this.$.paper_slider.value,
         timestamp: new Date().toDateString()
       });
-      this.$.name_input.value = '';
       this.$.room_input.value = '';
       this.$.problem_input.value = '';
       this.$.paper_slider.value = '';
+      this.$.problem_input_wrapper.update();
     },
     swap: function () {
       this.$.ticket_form.style.display = 'none';

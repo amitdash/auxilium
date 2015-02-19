@@ -15,18 +15,21 @@
       <div id="ticket_form" center-center vertical layout hidden?="{{!globals.currentUser}}">
         <core-card id="core_card" center horizontal layout center-justified one flex active>Submit your ticket here, {{user.google.displayName}}!</core-card>
         <paper-shadow class="claims_card" z="2" layout one flex vertical>
-          <paper-input label="What is your name?" floatinglabel id="name_input"></paper-input>
           <paper-input-decorator label="What room #?" floatinglabel error="is not an actual room number" id="room_check">
             <input id="room_input" is="core-input" pattern="^[A-Ca-c'\d-]*$" on-input="{{inputAction}}">
           </paper-input-decorator>
-          <paper-input label="Describe your problem" floatinglabel id="problem_input" vertical layout two flex multiline></paper-input>
+          <paper-input-decorator label="Describe your problem" floatinglabel>
+            <paper-autogrow-textarea id="problem_input_wrapper">
+              <textarea id="problem_input"></textarea>
+            </paper-autogrow-textarea>
+          </paper-input-decorator>
           <div id="urgency"><span>How urgent is it?</span></div>
           <paper-slider pin value="1" max="10" id="paper_slider" center horizontal layout start-justified>How urgent is it?</paper-slider>
           <paper-button raised id="paper_button" on-tap="{{claimStuff}} , {{submitQuestion}}"  horizontal layout one flex center center-justified>SUBMIT</paper-button>
         </paper-shadow>
       </div>
       <div>
-        <paper-toast text="Ticket received!" id="toast1" class="core-transition-bottom core-transition"></paper-toast>
+        <paper-toast text="Ticket received!" id="ticket_toast" class="core-transition-bottom core-transition"></paper-toast>
       </div>
     </sidebar-layout>
   </template>
