@@ -21,7 +21,16 @@
               <div class="details" flex>
                 <h3>Room# {{tickets[id]['room']}}</h3>
                 <p>{{tickets[id]['problem']}}</p>
-                <span class="metadata">by {{tickets[id]['name']}}</a> &bull; {{tickets[id]['timestamp']}} </span>
+                <span class="metadata">
+                  by
+                  <core-tooltip>
+                    <div tip>
+                      <div class="round"><img width="20" src="{{tickets[id]['user_metadata']['avatar_url']}}"></div>
+                    </div>
+                    <a href="http://plus.google.com/{{tickets[id]['user_metadata']['html_url']}}">{{tickets[id]['name']}}</a>
+                  </core-tooltip>
+                  &bull; {{tickets[id]['timestamp']}}
+                </span>
               </div>
             </div>
           </div>
