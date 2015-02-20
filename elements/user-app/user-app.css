@@ -12,3 +12,15 @@
   min-width: 100%;
   min-height: 100%;
 }
+.user_card {
+  width: 300px;
+  height: auto;
+  border-radius: 2px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 12px;
+}
+#paper_button {
+  background-color: rgb(241, 92, 34);
+  max-height: 40px;
+}

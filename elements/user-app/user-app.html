@@ -1,0 +1,30 @@
+<link rel="import" href="../../imports.html">
+<link rel="import" href="../../elements/elements.html">
+
+<polymer-element name="user-app">
+  <template>
+    <sidebar-layout selected="user" headerTitle="User">
+      <link rel="stylesheet" href="user-app.css">
+      <firebase-login id="baseLogin" user="{{user}}" statusKnown="{{statusKnown}}" location="https://{{globals.firebase}}.firebaseio.com" provider="google" on-login="{{onLogin}}" on-error="{{onLoginError}}"></firebase-login>
+      <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
+      <pvc-globals values="{{globals}}"></pvc-globals>
+
+      <welcome-message></welcome-message>
+
+      <div center-center vertical layout hidden?="{{!globals.currentUser}}">
+        <paper-shadow center-center vertical layout class="user_card" z=2>
+          <div class="round" style="padding-top: 12px"><img width="20" src="{{user.google.cachedUserProfile.picture}}"></div>
+          <div><h1>{{user.google.displayName}}</h1></div>
+          <div>
+            <p>Email: {{user.google.email}}</p>
+            <p>Gender: {{user.google.cachedUserProfile.gender}}</p>
+            <p>Tickets: <i>Yet to be implemented</i></p>
+          </div>
+          <paper-button raised id="paper_button" on-tap="{{logout}}">LOGOUT</paper-button>
+        </paper-shadow>
+      </div>
+
+    </sidebar-layout>
+  </template>
+  <script src="../../scripts/app.js"></script>
+</polymer-element>
