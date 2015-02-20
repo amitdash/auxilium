@@ -10,6 +10,7 @@
 }
 #paper_button {
   background-color: rgb(241, 92, 34);
+  max-height: 40px;
 }
 #paper_slider {
   width: 100%;
