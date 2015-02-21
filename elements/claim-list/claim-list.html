@@ -30,7 +30,8 @@
                       </div>
                       <a href="http://plus.google.com/{{tickets[id]['user_metadata']['html_url']}}">{{tickets[id]['name']}}</a>
                     </core-tooltip>
-                    on {{tickets[id]['timestamp']}}
+                    &bull;
+                    <time is="time-ago" datetime="{{tickets[id]['timestamp']}}">{{tickets[id]['timestamp']}}</time>
                   </span>
                 </div>
               </div>
