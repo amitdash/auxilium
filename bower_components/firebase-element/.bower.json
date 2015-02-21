@@ -3,15 +3,15 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#^0.5",
-    "firebase": "^2"
+    "firebase": "^2.2"
   },
-  "version": "0.5.4",
+  "version": "0.5.5",
   "homepage": "https://github.com/Polymer/firebase-element",
-  "_release": "0.5.4",
+  "_release": "0.5.5",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.4",
-    "commit": "0eb26bab81c2c007f4e5e8385bf7b3a2e96de6c1"
+    "tag": "0.5.5",
+    "commit": "3307aa80af8ee3bbecd8718da6bee19ffeaa9bcb"
   },
   "_source": "git://github.com/Polymer/firebase-element.git",
   "_target": "~0.5.1",

@@ -14,7 +14,7 @@
   <title>firebase-login</title>
 
   <script src="../../webcomponentsjs/webcomponents.js"></script>
-
+  
   <link rel="import" href="../firebase-login.html">
 
   <style>
@@ -35,8 +35,8 @@
     Firebase location:
     <input value="https://polymer-tests.firebaseio.com" disabled>
     <br>
-
-    Provider type:
+    
+    Provider type: 
     <select value="{{provider}}">
       <option>anonymous</option>>
       <option>facebook</option>>
@@ -68,7 +68,7 @@
     <br>
     <div id="message"></div>
     <br>
-
+    
     <button on-tap="{{login}}" hidden?="{{!statusKnown || user}}">Login</button>
     <button on-tap="{{logout}}" hidden?="{{!statusKnown || !user}}">Logout</button>
 
@@ -77,11 +77,11 @@
 
     <h3>User ID:</h3>
     <pre>{{user.uid}}</pre>
-
+ 
   </template>
-
+  
   <script>
-
+    
     addEventListener('template-bound', function(e) {
 
       var scope = e.target;
@@ -102,7 +102,7 @@
         }
         fbLogin.login(params);
       };
-
+      
       scope.logout = function() {
         fbLogin.logout();
       };
@@ -126,7 +126,7 @@
       scope.error = function(e) {
         setMessage('Error: ' + e.detail.message, true);
       };
-
+      
       scope.userSuccess = function(e) {
         setMessage(e.type + ' success!', false);
       };
@@ -142,7 +142,7 @@
           message.innerText = '';
         }, 3000);
       }
-
+      
     });
   </script>
 

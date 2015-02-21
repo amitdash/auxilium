@@ -14,7 +14,7 @@
   <title>firebase-element</title>
 
   <script src="../../webcomponentsjs/webcomponents.js"></script>
-
+  
   <link rel="import" href="../firebase-element.html">
 
 </head>
@@ -35,11 +35,11 @@
     <h3>Nested properties must be persisted manually:</h3>
 
     <input value="{{data.more.color}}">
-
+    
     <button on-tap="{{commitMore}}">Commit data.more</button>
-
+     
     <hr>
-
+    
     <h3>Remote Data</h3>
     <pre>{{json}}</pre>
 
@@ -52,9 +52,9 @@
 
 
   </template>
-
+  
   <script>
-
+    
     addEventListener('template-bound', function(e) {
 
       scope = e.target;
@@ -73,7 +73,7 @@
       scope.removeLocal = function() {
         this.data = null;
       };
-
+      
       scope.resetRemote = function() {
         // Simulate other actor setting data to same remote location
         new Firebase('https://treedata-demo.firebaseio.com/demo').set({
@@ -93,11 +93,11 @@
       scope.commitMore = function() {
         this.$.base.commitProperty('more');
       };
-
+      
       scope.dataChange = function() {
         this.json = JSON.stringify(this.data, null, '\t');
       };
-
+      
     });
   </script>
 

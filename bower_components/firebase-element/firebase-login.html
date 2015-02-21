@@ -10,7 +10,7 @@
 <link rel="import" href="firebase-import.html">
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="firebase-login" attributes="location provider user autoLogin statusKnown params">
+<polymer-element name="firebase-login" attributes="location provider user autoLogin statusKnown params redirect">
 <!--
 Element wrapper for the Firebase authentication API (https://www.firebase.com/docs/web/guide/user-auth.html).
 
@@ -21,51 +21,51 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
 -->
 
 <script>
-
+  
   Polymer('firebase-login', {
 
     /**
      * Fired when user is logged in
-     *
+     * 
      * @event login
      */
 
     /**
      * Fired when user is logged out
-     *
+     * 
      * @event logout
      */
 
     /**
      * Fired when an error occurred logging in
-     *
+     * 
      * @event error
      */
 
     /**
      * Fired when user is created (password provider type)
-     *
+     * 
      * @event user-created
      */
 
     /**
      * Fired when user changes their password (password provider type)
-     *
+     * 
      * @event password-changed
      */
 
     /**
      * Fired when password reset email is sent (password provider type)
-     *
+     * 
      * @event password-reset
      */
 
     /**
      * Fired when user is removed (password provider type)
-     *
+     * 
      * @event user-removed
      */
-
+       
     /**
      * Firebase location URL (must have simple login enabled via Forge interface).
      * @attribute location
@@ -173,7 +173,7 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
         this.fire('error', error);
       } else {
         this._authHandler(user);
-      }
+      } 
     },
 
     _authHandler: function(user) {
@@ -191,18 +191,18 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
           this.login(this.queuedLogin.params, this.queuedLogin.options);
           this.queuedLogin = null;
         } else if (!this.statusKnown && this.autoLogin) {
-          this.login();
+          this.login();                
         }
         this.statusKnown = true;
-      }
+      }      
     },
 
     /**
      * Performs a login attempt, using the `provider` specified via attribute/property,
-     * or optionally via `provider` argument to the `login` function.  Optionally,
+     * or optionally via `provider` argument to the `login` function.  Optionally, 
      * provider-specific login parameters can be specified via attribute (JSON)/property,
      * or via the `params` argument to the `login` function.
-     *
+     * 
      * If the login is successful, the `login` event is fired, with `e.detail.user`
      * containing the authenticated user object from Firebase.
      *
@@ -251,7 +251,7 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
 
     /**
      * Performs a logout attempt.
-     *
+     * 
      * If the login is successful, the `logout` event is fired.
      *
      * If login fails, the `error` event is fired, with `e.detail` containing error
@@ -280,13 +280,13 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
         this.queuedLogin = null;
       }
     },
-
+    
     /**
      * Creates a "password provider"-based user account.
      *
      * If the operation is successful, the `user-created` event is fired.
      *
-     * If the operation fails, the `error` event is fired, with `e.detail`
+     * If the operation fails, the `error` event is fired, with `e.detail` 
      * containing error information supplied from Firebase.
      *
      * @method createUser
@@ -306,9 +306,9 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
     /**
      * Changes the password of a "password provider"-based user account.
      *
-     * If the operation is successful, the `user-created` event is fired.
+     * If the operation is successful, the `password-changed` event is fired.
      *
-     * If the operation fails, the `error` event is fired, with `e.detail`
+     * If the operation fails, the `error` event is fired, with `e.detail` 
      * containing error information supplied from Firebase.
      *
      * @method changePassword
@@ -333,9 +333,9 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
     /**
      * Sends a password reset email for a "password provider"-based user account.
      *
-     * If the operation is successful, the `user-created` event is fired.
+     * If the operation is successful, the `password-reset` event is fired.
      *
-     * If the operation fails, the `error` event is fired, with `e.detail`
+     * If the operation fails, the `error` event is fired, with `e.detail` 
      * containing error information supplied from Firebase.
      *
      * @method sendPasswordResetEmail
@@ -352,11 +352,38 @@ Element wrapper for the Firebase authentication API (https://www.firebase.com/do
     },
 
     /**
+    * Changes the email of a "password provider"-based user account.
+    *
+    * If the operation is successful, the `email-changed` event is fired.
+    *
+    * If the operation fails, the `error` event is fired, with `e.detail`
+    * containing error information supplied from Firebase.
+    *
+    * @method changeEmail
+    * @param {string} oldEmail
+    * @param {string} newEmail
+    * @param {string} Password
+    */
+    changeEmail: function(oldEmail, newEmail, password) {
+      this.ref.changeEmail({
+        oldEmail: oldEmail,
+        newEmail: newEmail,
+        password: password
+      }, function(error) {
+        if (!error) {
+          this.fire('email-changed');
+        } else {
+          this.fire('error', error);
+        }
+      }.bind(this));
+    },
+    
+    /**
      * Removes a "password provider"-based user account.
      *
-     * If the operation is successful, the `user-created` event is fired.
+     * If the operation is successful, the `user-removed` event is fired.
      *
-     * If the operation fails, the `error` event is fired, with `e.detail`
+     * If the operation fails, the `error` event is fired, with `e.detail` 
      * containing error information supplied from Firebase.
      *
      * @method removeUser
