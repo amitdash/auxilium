@@ -47,9 +47,6 @@
       this.$.problem_input_wrapper.update();
 
       this.$.ticket_toast.show();
-    },
-    inputAction: function (e) {
-      this.$.room_check.isInvalid = !e.target.validity.valid;
     }
 //    END MY-CLAIMS DATA
   });

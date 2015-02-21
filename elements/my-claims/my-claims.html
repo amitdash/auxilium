@@ -15,8 +15,8 @@
       <div id="ticket_form" center-center vertical layout hidden?="{{!globals.currentUser}}">
         <core-card id="core_card">Submit your ticket here, {{user.google.displayName}}!</core-card>
         <paper-shadow class="claims_card" z="2" layout one flex vertical>
-          <paper-input-decorator label="What room #?" floatinglabel error="is not an actual room number" id="room_check">
-            <input id="room_input" is="core-input" pattern="^[A-Ca-c'\d-]*$" on-input="{{inputAction}}">
+          <paper-input-decorator label="What room #?" floatinglabel error="is not an actual room number" autoValidate>
+            <input id="room_input" pattern="^[A-Ca-c'\d-]*$">
           </paper-input-decorator>
           <paper-input-decorator label="Describe your problem" floatinglabel>
             <paper-autogrow-textarea id="problem_input_wrapper">
