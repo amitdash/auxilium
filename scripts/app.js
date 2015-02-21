@@ -21,10 +21,15 @@
 //    END PVC GLOBALS, FIREBASE AND GENERAL DATA
 
 //    BEGIN MY-CLAIMS DATA
-    claimStuff: function () {
-      this.$.ticket_toast.show();
-    },
     submitQuestion: function () {
+      if(!this.$.room_input.value){
+        alert('Please enter a room #!');
+        return;
+      }
+      if(!this.$.problem_input.value){
+        alert('Please describe your problem!');
+        return;
+      }
       var ticket = this.$.base.push({
         name: this.globals.currentUser.google.displayName,
         user_metadata: {
@@ -40,6 +45,8 @@
       this.$.problem_input.value = '';
       this.$.paper_slider.value = '';
       this.$.problem_input_wrapper.update();
+
+      this.$.ticket_toast.show();
     },
     swap: function () {
       this.$.ticket_form.style.display = 'none';
