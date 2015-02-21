@@ -48,10 +48,6 @@
 
       this.$.ticket_toast.show();
     },
-    swap: function () {
-      this.$.ticket_form.style.display = 'none';
-      this.$.ticket_list.style.display = 'block';
-    },
     inputAction: function (e) {
       this.$.room_check.isInvalid = !e.target.validity.valid;
     }
