@@ -14,7 +14,7 @@
       <div hidden?="{{!globals.currentUser}}">
         <template repeat="{{id in keys}}">
           <paper-shadow z="1">
-            <div class="question">
+            <div class="ticket">
               <div layout horizontal center>
                 <div class="urgency_img">
                   <span>{{tickets[id]['urgency']}}</span>
@@ -30,7 +30,7 @@
                       </div>
                       <a href="http://plus.google.com/{{tickets[id]['user_metadata']['html_url']}}">{{tickets[id]['name']}}</a>
                     </core-tooltip>
-                    &bull; {{tickets[id]['timestamp']}}
+                    on {{tickets[id]['timestamp']}}
                   </span>
                 </div>
               </div>

@@ -18,12 +18,8 @@ core-header-panel::shadow #mainContainer {
   background: rgb(241, 92, 34);
   color: rgb(255, 255, 255);
 }
-core-header-panel  core-item:not(:first-of-type) {
-  border-top: 1px solid rgb(241, 92, 34);
-}
-core-header-panel core-item:focus {
-  background-color: #fcfcfc;
-  color: rgb(0, 72, 144);
+core-header-panel core-item:hover {
+  border-right: 8px solid rgb(0, 72, 144);
 }
 core-header-panel core-item[active] {
   color: rgb(255, 255, 255);

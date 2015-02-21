@@ -21,7 +21,7 @@
 //    END PVC GLOBALS, FIREBASE AND GENERAL DATA
 
 //    BEGIN MY-CLAIMS DATA
-    submitQuestion: function () {
+    submitTicket: function () {
       if(!this.$.room_input.value){
         alert('Please enter a room #!');
         return;
@@ -38,12 +38,12 @@
         },
         room: this.$.room_input.value,
         problem: this.$.problem_input.value,
-        urgency: this.$.paper_slider.value,
+        urgency: this.$.urgency_slider.value,
         timestamp: new Date().toDateString()
       });
       this.$.room_input.value = '';
       this.$.problem_input.value = '';
-      this.$.paper_slider.value = '';
+      this.$.urgency_slider.value = '';
       this.$.problem_input_wrapper.update();
 
       this.$.ticket_toast.show();

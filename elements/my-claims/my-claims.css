@@ -1,19 +1,14 @@
 .claims_card {
   width: 300px;
   height: auto;
-  border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+  border-radius: 3px;
   padding: 12px;
   top: 20px;
-  position: relative;
   background-color: rgb(255, 255, 255);
 }
 #paper_button {
   background-color: rgb(241, 92, 34);
   max-height: 40px;
-}
-#paper_slider {
-  width: 100%;
 }
 paper-slider::shadow #sliderKnobInner {
   background-color: rgb(241, 92, 34);
@@ -24,18 +19,8 @@ paper-slider::shadow #sliderBar::shadow #activeProgress {
 paper-slider::shadow #sliderKnobInner::before {
   background-color: rgb(0, 72, 144);
 }
-#urgency {
-  font-size: 12px;
-  margin-left: auto;
-  margin-right: auto;
-}
 #core_card {
-  border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+  border-radius: 3px;
   padding: 20px;
-  opacity: 1;
-  position: relative;
-  width: auto;
-  height: auto;
   background-color: rgb(255, 255, 255);
 }
