@@ -1,0 +1,64 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+
+<polymer-element name="x-notification-editor" attributes="titleValue dirValue langValue bodyValue delayValue timeoutValue">
+
+  <template>
+
+    <style>
+      :host pre {
+        padding: 10px;
+        overflow-x: scroll;
+        font-size: 14px;
+        font-family: Consolas, 'Source Code Pro', monospace;
+        background: #272822;
+        color: #fff;
+      }
+    </style>
+
+    <!-- target notification -->
+    <x-notification id="notification" title="{{titleValue}}" dir="{{dirValue}}" lang="{{langValue}}" delay="{{delayValue}}" timeout="{{timeoutValue}}">{{bodyValue}}</x-notification>
+
+    <!-- tag state -->
+    <pre>&lt;x-notification title=&#039;{{titleValue}}&#039; dir=&#039;{{dirValue}}&#039; lang=&#039;{{langValue}}&#039; delay=&#039;{{delayValue}}&#039; timeout=&#039;{{timeoutValue}}&#039;&gt;
+  {{bodyValue}}
+&lt;/x-notification&gt;</pre>
+
+    <!-- x-notification editor -->
+    <div><paper-input label="Title" value="{{titleValue}}"></paper-input></div>
+    <div>
+      <paper-radio-group id="dir" selected="0" on-core-select="{{directionChanged}}">
+        <paper-radio-button label="Auto" value="auto"></paper-radio-button><br>
+        <paper-radio-button label="Left to Right" value="ltr"></paper-radio-button><br>
+        <paper-radio-button label="Right to Left" value="rtl"></paper-radio-button>
+      </paper-radio-group>
+    </div>
+    <div><paper-input label="Language" value="{{langValue}}"></paper-input></div>
+    <div><paper-input label="Body" value="{{bodyValue}}"></paper-input></div>
+    <div><paper-input label="Delay" value="{{delayValue}}" pattern="^[0-9]*$" error="Input is not a number!"></paper-input></div>
+    <div><paper-input label="Timeout" value="{{timeoutValue}}" pattern="^[0-9]*$" error="Input is not a number!"></paper-input></div>
+    <paper-button on-click="{{showNotification}}" style="color: #4285f4; fill:#4285f4;">Custom Notification</paper-button>
+  </template>
+  <script>
+    Polymer('x-notification-editor', {
+      titleValue: '',
+      dirValue: '',
+      langValue: '',
+      bodyValue: '',
+      delayValue: '',
+      timeoutValue: '',
+      ready: function () {},
+      directionChanged: function (e, detail, sender) {
+        if (this.$.dir.selectedItem) {
+          this.dirValue = this.$.dir.selectedItem.getAttribute('value');
+        }
+      },
+      showNotification: function () {
+        this.$.notification.show();
+      }
+    });
+  </script>
+</polymer-element>

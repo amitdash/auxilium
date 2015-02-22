@@ -39,7 +39,7 @@
         room: this.$.room_input.value,
         problem: this.$.problem_input.value,
         urgency: this.$.urgency_slider.value,
-        timestamp: new Date().toDateString()
+        timestamp: new Date().toString()
       });
       this.$.room_input.value = '';
       this.$.problem_input.value = '';
@@ -47,7 +47,43 @@
       this.$.problem_input_wrapper.update();
 
       this.$.ticket_toast.show();
+
+      var ref = new Firebase("https://vivid-fire-7477.firebaseio.com/");
+      ref.child('counter').transaction(function(count){
+        return (count || 0) + 1;
+      });
+
+      ref.on('child_changed', function(snapshot) {
+        notifyMe();
+      });
     }
 //    END MY-CLAIMS DATA
   });
+
+  function notifyMe() {
+    if (Notification.permission === "granted") {
+          var options = {
+                  body: "Please visit Auxilium to view it.",
+                  icon: "icon.jpg",
+                  dir : "ltr"
+               };
+            var notification = new Notification("New Ticket Received!",options);
+    }
+    else if (Notification.permission !== 'denied') {
+      Notification.requestPermission(function (permission) {
+        if (!('permission' in Notification)) {
+          Notification.permission = permission;
+        }
+
+        if (permission === "granted") {
+          var options = {
+                body: "Please visit Auxilium to view it.",
+                icon: "icon.jpg",
+                dir : "ltr"
+            };
+          var notification = new Notification("New Ticket Received!",options);
+        }
+      });
+    }
+  }
 })();

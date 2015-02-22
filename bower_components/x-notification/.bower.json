@@ -1,0 +1,43 @@
+{
+  "name": "x-notification",
+  "version": "0.4.1",
+  "homepage": "https://github.com/1000ch/x-notification",
+  "authors": [
+    "1000ch <shogo.sensui@gmail.com>"
+  ],
+  "description": "Declarative Browser Notifications as Web Components.",
+  "main": "x-notification.js",
+  "keywords": [
+    "notification",
+    "WebComponents",
+    "web-components"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "polymer": "~0.5.2",
+    "webcomponentsjs": "~0.5.2",
+    "paper-button": "Polymer/paper-button#~0.5.2",
+    "paper-input": "Polymer/paper-input#~0.5.2",
+    "paper-radio-group": "Polymer/paper-radio-group#~0.5.2",
+    "paper-shadow": "Polymer/paper-shadow#~0.5.2",
+    "markdown.css": "~0.1.1"
+  },
+  "_release": "0.4.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.1",
+    "commit": "96441aad70414ce5e68a1e3a1bbdd0fed009f117"
+  },
+  "_source": "git://github.com/1000ch/x-notification.git",
+  "_target": "~0.4.1",
+  "_originalSource": "x-notification",
+  "_direct": true
+}
