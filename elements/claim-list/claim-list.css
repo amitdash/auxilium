@@ -1,6 +1,7 @@
 .ticket {
   padding: 20px;
   background: #fff;
+  position: relative;
 }
 .ticket h3 {
   margin: 0;
@@ -44,4 +45,9 @@
   min-width: 100%;
   min-height: 100%;
   background: url(http://thecoolstuffonline.com/images/photo.png);
+}
+#core_card {
+  border-radius: 3px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
 }

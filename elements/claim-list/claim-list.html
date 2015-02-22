@@ -6,12 +6,14 @@
     <sidebar-layout selected="tickets" headerTitle="Ticket List">
       <link rel="stylesheet" href="claim-list.css">
       <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
+      <firebase-element id="base2" location="https://{{globals.firebase}}.firebaseio.com/" data="{{node}}"></firebase-element>
       <pvc-globals values="{{globals}}"></pvc-globals>
 
       <welcome-message></welcome-message>
 
       <!--  TEMPLATE TO REPEAT THE KEYS OF TICKETS FROM FIREBASE-->
       <div hidden?="{{!globals.currentUser}}">
+        <core-card id="core_card" center-center vertical layout>There are currently <b>{{node['counter']}}</b> tickets.</core-card>
         <template repeat="{{id in keys}}">
           <paper-shadow z="1">
             <div class="ticket">
