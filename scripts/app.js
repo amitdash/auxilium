@@ -56,8 +56,20 @@
       ref.on('child_changed', function(snapshot) {
         notifyMe();
       });
-    }
+    },
 //    END MY-CLAIMS DATA
+
+//    BEGIN CLAIM-LIST DATA
+    doThis: function () {
+//      this.$.base.orderByChild("urgency").limitToLast(4).on("child_added", function(snapshot) {
+//        console.log(snapshot.key());
+//      });
+      var ref = new Firebase("https://vivid-fire-7477.firebaseio.com/tickets");
+      ref.orderByChild("urgency").limitToLast(40).on("child_added", function(snapshot) {
+        console.log(snapshot.val().problem);
+      });
+    }
+//    END CLAIM-LIST DATA
   });
 
   function notifyMe() {

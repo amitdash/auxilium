@@ -13,7 +13,10 @@
 
       <!--  TEMPLATE TO REPEAT THE KEYS OF TICKETS FROM FIREBASE-->
       <div hidden?="{{!globals.currentUser}}">
-        <core-card id="core_card" center-center vertical layout>There are currently <b>{{node['counter']}}</b> tickets.</core-card>
+        <core-card id="core_card" center-center vertical layout>
+          <p>There are currently <b>{{node['counter']}}</b> tickets.</p>
+<!--          <paper-toggle-button on-click="{{doThis}}"></paper-toggle-button>-->
+        </core-card>
         <template repeat="{{id in keys}}">
           <paper-shadow z="1">
             <div class="ticket">
