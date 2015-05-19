@@ -14,8 +14,11 @@
         <core-item icon="account-circle" label="User" active?="{{selected == 'user'}}"><a href="/#/user"></a></core-item>
         <core-item icon="assignment" label="Tickets" active?="{{selected == 'tickets'}}"><a href="/#/tickets"></a></core-item>
       </core-header-panel>
-      <div tool>
-        {{headerTitle}}
+      <div tool horizontal layout>
+        <div>{{headerTitle}}</div>
+        <div class="tool_menu">
+<!--          <paper-toggle-button on-change="{{doThis}}" hidden?="{{selected != 'tickets'}}"></paper-toggle-button>-->
+        </div>
       </div>
       <div class="content">
         <content></content>

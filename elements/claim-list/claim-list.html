@@ -7,14 +7,18 @@
       <link rel="stylesheet" href="claim-list.css">
       <firebase-element id="base" location="https://{{globals.firebase}}.firebaseio.com/tickets" data="{{tickets}}" keys="{{keys}}"></firebase-element>
       <firebase-element id="base2" location="https://{{globals.firebase}}.firebaseio.com/" data="{{node}}"></firebase-element>
+      <firebase-element id="base3" location="https://{{globals.firebase}}.firebaseio.com/checks" data="{{checks}}"></firebase-element>
       <pvc-globals values="{{globals}}"></pvc-globals>
 
       <welcome-message></welcome-message>
 
       <!--  TEMPLATE TO REPEAT THE KEYS OF TICKETS FROM FIREBASE-->
       <div hidden?="{{!globals.currentUser}}">
-        <core-card id="core_card" center-center vertical layout>There are currently <b>{{node['counter']}}</b> tickets.</core-card>
-        <template repeat="{{id in keys}}">
+        <core-card id="core_card" center-center vertical layout>
+          <p>There are currently <b>{{node['counter']}}</b> tickets.</p>
+<!--          <paper-toggle-button on-click="{{doThis}}"></paper-toggle-button>-->
+        </core-card>
+        <template repeat="{{id in keys}}" repeat="{{check in checks}}">
           <paper-shadow z="1">
             <div class="ticket">
               <div layout horizontal center>
@@ -35,6 +39,10 @@
                     &bull;
                     <time is="time-ago" datetime="{{tickets[id]['timestamp']}}">{{tickets[id]['timestamp']}}</time>
                   </span>
+                </div>
+                <div>
+                  <paper-icon-button icon="done" id="fix_button" title="Mark as fixed!" onclick="{{markFixed}}" hidden?="{{tickets[id]['status'] === 'closed'}}"></paper-icon-button>
+                  <paper-toast text="Marked as fixed!" id="fixed_toast"></paper-toast>
                 </div>
               </div>
             </div>
