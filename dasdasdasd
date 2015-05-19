@@ -1,0 +1,240 @@
+[33mcommit a005b8986ef3402395f98713277a81d7c8ca823d[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Mar 4 05:34:27 2015 -0500
+
+    Added and gitignored Divshot hosting cache
+
+[33mcommit 27a01ec06eebd2918c9c3f65cecb77aa3ac455e2[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Thu Feb 26 23:29:14 2015 -0500
+
+    Load Polymer and WebComponents JS from CDN.
+
+[33mcommit f06e18a8b147c1dd099a947c8a793199573442bc[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Mon Feb 23 18:18:57 2015 -0500
+
+    Urgency slider pin snaps at each unit.
+
+[33mcommit 768f1e6cea7a6218afbef08019560cbb12120647[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 22 13:55:02 2015 -0500
+
+    Added ticket counter.
+
+[33mcommit f1371e30371937c6c718ce45f1954899d78561f4[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 22 13:35:38 2015 -0500
+
+    Fixed date and added web push notifications.
+
+[33mcommit a7a81a6968115122a04a3129b57cd558f0aff2f9[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sat Feb 21 18:34:59 2015 -0500
+
+    Updated bower components
+
+[33mcommit 3540421c7e21db04635a612acdbd283932af7bf9[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sat Feb 21 17:20:25 2015 -0500
+
+    Removed unused imports.
+
+[33mcommit 96c31e195825c8987e6ff200add5dddf12794a30[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sat Feb 21 05:11:10 2015 -0500
+
+    Added relative time instead of static date.
+
+[33mcommit c0cfcfeec5eec2d5359b3586d3c23ad2242fe770[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sat Feb 21 05:02:27 2015 -0500
+
+    Used validation attribute instead of script.
+
+[33mcommit bfcc2a7bfe916856c9e59dd1345890f89420ee2d[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sat Feb 21 04:44:48 2015 -0500
+
+    Removed tons of redundant code.
+
+[33mcommit 37355caa37ee930983885871c6ebbcc30bda1b67[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sat Feb 21 03:42:41 2015 -0500
+
+    Removed redundant script.
+
+[33mcommit 5813217e819414d6552331a2bf03ae7909d5c3fe[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Fri Feb 20 19:29:23 2015 -0500
+
+    Alerts if empty fields. Merged toast function with submit function.
+
+[33mcommit 17a27ca6b88bfa5a0c632068b6479c990d4c53de[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Thu Feb 19 21:50:06 2015 -0500
+
+    Added user info element plus fixed some styles.
+
+[33mcommit 1fb9404decd0d7116acf725df23c91aa07756a99[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Thu Feb 19 19:46:09 2015 -0500
+
+    Fixed issue where submit button was huge on mobile
+
+[33mcommit c0f6fd9063f4e8a79985834fae97cc9ded5f17be[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Thu Feb 19 19:31:47 2015 -0500
+
+    Fixed issue where tickets werent hidden for guests
+
+[33mcommit d32569ed6117402c64893171c6097490036e3c76[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Thu Feb 19 19:21:51 2015 -0500
+
+    User can now click the name on the ticket and get directed to the Google profile of that user. Hovering over the name will result in the person's profile picture.
+
+[33mcommit 31cda20b9369b03112d55076f5bdecebcb212162[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 20:07:57 2015 -0500
+
+    User metadata now pushed to Firebase
+
+[33mcommit d454262db6f9fcbf393808eb82ee0931b3a8f0af[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 19:29:15 2015 -0500
+
+    Removed named field since it is no longer required because of Google login. Made the problem input field multiline.
+
+[33mcommit 41e3ea73cbdf42bb3cdb06e2925bd0c29ed392e0[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 15:20:58 2015 -0500
+
+    Encapsulated the welcome message as an element.
+
+[33mcommit 9cc1f3f2dc69999db103b0a87ed35fbffe6eb397[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 15:03:58 2015 -0500
+
+    Small step towards knowing that firebase-login works. An itty bitty personalization added.
+
+[33mcommit 7eb867218f342446f1ddcaff88a662e73cafec24[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 14:53:40 2015 -0500
+
+    Added gitignore
+
+[33mcommit e3bf7b183943db6278469e6c977317393ecf57cb[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 14:52:44 2015 -0500
+
+    Proper comments of the general scripts
+
+[33mcommit cfd2caad7004c4ea1344202749ed0ab688052ae2[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 14:13:33 2015 -0500
+
+    Changed title attribute to headerTitle as it was conflicting with different browsers.
+
+[33mcommit ce25e83d0ebca0826e110fd6e0579eccf90ee655[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Wed Feb 18 00:17:27 2015 -0500
+
+    Added titles
+
+[33mcommit 5bcfaadc9e67983b4ab1a6679e748077e0c4a554[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Tue Feb 17 23:56:48 2015 -0500
+
+    Back to square one
+
+[33mcommit 224dc9109c697a82e9791e341ffc55982038af3f[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Tue Feb 17 23:26:33 2015 -0500
+
+    Yo polymerized and gruntified the app.
+
+[33mcommit 7f49ea3a450fbd081cb33edd79a79f66a215c0f9[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Tue Feb 17 23:17:34 2015 -0500
+
+    Removed unneccasry files and fixed styling of drawer
+
+[33mcommit b4ab01f4580ac51e10124e83d5ecc5be10d58b57[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Tue Feb 17 11:53:56 2015 -0500
+
+    Fixing JSLint errors + room validity checker.
+
+[33mcommit 38edd6c11858e95759a2d743ae13c9048fe2aa7e[m
+Merge: 778f64d 1ae432e
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Tue Feb 17 01:07:17 2015 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 778f64d0309fca41f3bcb409ef87a7f5010c2a3c[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Tue Feb 17 01:06:43 2015 -0500
+
+    Cleaned up imports
+
+[33mcommit 1ae432eed59e769d614a2f86659d5d66d029f7e3[m
+Author: Najm Sheikh <najubhai@users.noreply.github.com>
+Date:   Tue Feb 17 00:57:47 2015 -0500
+
+    Delete npm-debug.log
+
+[33mcommit 10a875932e4725385f70eb05eae2874edb90581b[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Tue Feb 17 00:54:42 2015 -0500
+
+    Massive clean up.
+
+[33mcommit c86cdbfcc66e0863237ed70d2bf7bbbf7975d291[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 15 21:04:11 2015 -0500
+
+    Safety commit
+
+[33mcommit 862d77e2131acb4560522359a08e5324ac40abc0[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 15 18:33:23 2015 -0500
+
+    Proper room number validation
+
+[33mcommit 0370d0eabe9b87124d269862b354cd067410071d[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 15 16:21:51 2015 -0500
+
+    Updated bower components
+
+[33mcommit 17694e8d2c0a8cd10baecb4f4f57414e319f9268[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 15 16:13:02 2015 -0500
+
+    Validation of room field
+
+[33mcommit cee8d5d9ea189c3b38d833adfa4cdbdd8cd8d0e4[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 15 16:07:12 2015 -0500
+
+    Validation of room field
+
+[33mcommit 3e04f69522d671fa29c18eaa4eba76a5bb1431d3[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 15 15:57:02 2015 -0500
+
+    Edited bower JSON
+
+[33mcommit ef2b3fe0aafb0aaf51c12856bb7215d8a3144de8[m
+Author: Najm Sheikh <najm97@gmail.com>
+Date:   Sun Feb 15 09:32:45 2015 -0500
+
+    Moved and cleaned the repo
+
+[33mcommit f802a54659aa11a4f9711e7b70e6697ea177585c[m
+Author: Najm Sheikh <najubhai@users.noreply.github.com>
+Date:   Sun Feb 15 09:23:34 2015 -0500
+
+    Initial commit
